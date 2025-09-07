@@ -6,7 +6,7 @@
   padding: 0;
   margin: 0;
   font-family: "DM Sans" sans-serif;
-  background-color: hsl(243, 96%, 9%);
+  
 }
 
 body {
@@ -16,6 +16,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 40px;
+  background-color: hsl(243, 96%, 9%);
 }
 
 header {
@@ -123,3 +124,58 @@ header select {
   background-color: hsl(248, 70%, 20%);
   transition: ease-in 0.3s;
 }
+
+.weather-display-control {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 20px;
+}
+
+.weather-display {
+  grid-column: span 8;
+  /* border: 1px solid red; */
+}
+.weather-contorl {
+  grid-column: span 4;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: hsl(243, 23%, 24%);
+}
+
+.weather-display .weather-details {
+  background: url("/assets/images/bg-today-large.svg") no-repeat center center;
+  height: 300px;
+  background-size: cover;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.weather-details .details {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 30px;
+}
+
+.weather-details .details h3{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.weather-details .details p{
+    font-size: 14px;
+}
+
+.weather-details .condition {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+.weather-details .condition h1 {
+    font-size: 60px;
+    font-weight: bold;
+    font-style: italic;
+    margin-right: 30px;
+  }
+  
