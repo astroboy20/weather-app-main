@@ -1,16 +1,14 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;700&display=swap");
 
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family: "DM Sans" sans-serif;
-  
 }
 
 body {
-  padding: 3%;
+  /* padding: 3%; */
   color: white;
   font-family: "Bricolage Grotesque", sans-serif;
   display: flex;
@@ -23,13 +21,6 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-header select {
-  border-radius: 5px;
-  padding: 5px 10px;
-  color: white;
-  background-color: hsla(0, 0%, 0%, 0.7);
 }
 
 .select-wrapper {
@@ -77,30 +68,32 @@ header select {
   gap: 40px;
 }
 
-/* .hero-section{
-    border: 1px solid red;
-} */
-
 .hero-section h1 {
-  font-size: 48px;
+  font-size: clamp(24px, 5vw, 48px);
 }
 
 .search-section {
   display: flex;
   gap: 20px;
   align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
 }
+
 .hero-section .search-input {
   position: relative;
-  width: auto;
+  width: 100%;
+  max-width: 500px;
 }
 
 .search-input input {
   padding: 15px 10px 15px 40px;
-  width: 500px;
+  width: 100%;
   border-radius: 10px;
   border: none;
   background-color: hsl(243, 27%, 20%);
+  color: white;
 }
 
 .search-input img {
@@ -108,8 +101,6 @@ header select {
   left: 12px;
   top: 50%;
   transform: translateY(-50%);
-  background-color: transparent;
-  /* width: 20px; */
 }
 
 .search-section button {
@@ -117,9 +108,10 @@ header select {
   color: white;
   border-radius: 10px;
   padding: 15px 20px;
-  font-family: "Bricolage Grotesque", sans-serif;
   border: none;
+  cursor: pointer;
 }
+
 .search-section button:hover {
   background-color: hsl(248, 70%, 20%);
   transition: ease-in 0.3s;
@@ -133,13 +125,9 @@ header select {
 
 .weather-display {
   grid-column: span 8;
-  /* border: 1px solid red; */
-}
-.weather-contorl {
-  grid-column: span 4;
-  padding: 10px;
-  border-radius: 10px;
-  background-color: hsl(243, 23%, 24%);
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
 
 .weather-display .weather-details {
@@ -158,24 +146,190 @@ header select {
   padding: 10px 30px;
 }
 
-.weather-details .details h3{
-    font-size: 30px;
-    font-weight: bold;
+.weather-details .details h3 {
+  font-size: 30px;
+  font-weight: bold;
 }
 
-.weather-details .details p{
-    font-size: 14px;
+.weather-details .details p {
+  font-size: 14px;
 }
 
 .weather-details .condition {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-  }
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 20px;
+}
+
 .weather-details .condition h1 {
-    font-size: 60px;
-    font-weight: bold;
-    font-style: italic;
-    margin-right: 30px;
+  font-size: 60px;
+  font-weight: bold;
+  font-style: italic;
+  margin-left: 10px;
+}
+
+.weather-display .weather-breakdown {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 20px;
+}
+
+.temp,
+.wind,
+.humidity,
+.precipitation {
+  grid-column: span 3;
+  padding: 10px 20px;
+  border-radius: 10px;
+  background: hsl(243, 27%, 20%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.temp h4,
+.wind h4,
+.humidity h4,
+.precipitation h4 {
+  font-size: 24px;
+}
+
+.weather-display .daily-forecast {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 20px;
+  overflow-x: auto;
+}
+
+.daily-forecast .day {
+  padding: 10px 20px;
+  border-radius: 10px;
+  background: hsl(243, 27%, 20%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 14px;
+  min-width: 100px;
+}
+
+.day p {
+  text-align: center;
+}
+
+.day img {
+  margin: 0 auto;
+}
+
+.day span {
+  display: flex;
+  justify-content: space-between;
+}
+
+.weather-control {
+  grid-column: span 4;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: hsl(243, 23%, 24%);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.weather-control .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.weather-control .hourly-updates {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.hourly-updates .hourly-update {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  background: hsl(243, 23%, 30%);
+  padding: 10px;
+  flex-wrap: wrap;
+}
+
+.hourly-updates .hourly-update .image {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hourly-update .image p {
+  font-size: 18px;
+}
+
+/* --- Responsive Media Queries --- */
+
+@media (max-width: 1024px) {
+  .weather-display-control {
+    grid-template-columns: 1fr;
+    /* margin-right: 15; */
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    /* padding: 0 30px; */
+  }
+  .weather-display {
+    grid-column: span 1;
+  }
+  .weather-control {
+    grid-column: span 1;
+  }
+  .daily-forecast {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    overflow-x: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    /* padding:  15px; */
+  }
+  .hero-section h1 {
+    font-size: 28px;
+  }
+  .search-section {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+  .search-section button {
+    width: 100%;
+  }
+
+  .weather-display .weather-breakdown {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
   }
   
+  .temp,
+  .wind,
+  .humidity,
+  .precipitation {
+    grid-column: span 1;
+    mar
+  }
+  
+  .temp h4,
+  .wind h4,
+  .humidity h4,
+  .precipitation h4 {
+    font-size: 24px;
+  }
+
+}
