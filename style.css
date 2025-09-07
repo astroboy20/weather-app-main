@@ -8,7 +8,7 @@
 }
 
 body {
-  /* padding: 3%; */
+  padding: 3%;
   color: white;
   font-family: "Bricolage Grotesque", sans-serif;
   display: flex;
@@ -131,14 +131,15 @@ header {
 }
 
 .weather-display .weather-details {
-  background: url("/assets/images/bg-today-large.svg") no-repeat center center;
-  height: 300px;
-  background-size: cover;
-  border-radius: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+    background: url("/assets/images/bg-today-large.svg") no-repeat center center;
+    background-size: cover; 
+    height: 300px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
 
 .weather-details .details {
   display: flex;
@@ -296,8 +297,43 @@ header {
 }
 
 @media (max-width: 480px) {
-  body {
-    /* padding:  15px; */
+  .weather-display .weather-details {
+    background: url("/assets/images/bg-today-small.svg") no-repeat center center;
+    display: flex;
+    height: 300px;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .weather-details .details {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap:10px;
+    /* padding: 10px 30px; */
+  }
+  
+  .weather-details .details h3 {
+    font-size: 30px;
+    font-weight: bold;
+  }
+  
+  .weather-details .details p {
+    font-size: 18px;
+  }
+  
+  .weather-details .condition {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .weather-details .condition h1 {
+    font-size: 80px;
+    font-weight: bold;
+    font-style: italic;
+    margin-left: 10px;
   }
   .hero-section h1 {
     font-size: 28px;
@@ -316,20 +352,18 @@ header {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
   }
-  
+
   .temp,
   .wind,
   .humidity,
   .precipitation {
     grid-column: span 1;
-    mar
   }
-  
+
   .temp h4,
   .wind h4,
   .humidity h4,
   .precipitation h4 {
     font-size: 24px;
   }
-
 }
